@@ -12,6 +12,7 @@ module.exports = {
     },
     getOne: (req, res, next ) => {
         const dbInstance = req.app.get('db');
+        const {id} = req.params;
 
         dbInstance.read_product(id)
             .then( product => res.status(200).send( product ) )
@@ -43,6 +44,7 @@ module.exports = {
     },
     delete: (req, res, next ) => {
         const dbInstance = req.app.get('db');
+        const {id} = req.params;
 
         dbInstance.delete_product(id)
             .then( () => res.sendStatus(200) )
